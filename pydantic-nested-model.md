@@ -1,7 +1,7 @@
-# Pydantic - Nested Model
+# 🟢 Pydantic - Nested Model
 
-* Using basemodel inside another model
-* For example using Address model inside Student model
+* <mark style="color:purple;background-color:purple;">**Using basemodel inside another model**</mark>
+* <mark style="color:purple;background-color:purple;">**For example using Address model inside Student model**</mark>
 
 ```python
 from pydantic import BaseModel

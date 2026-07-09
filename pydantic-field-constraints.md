@@ -1,4 +1,6 @@
-# Pydantic - Field Constraints
+# 🟢 Pydantic - Field Constraints
+
+* <mark style="color:purple;background-color:purple;">**We can add field contraints by specify the range limits, regex and special data types like emailstr, httpurl etc**</mark>
 
 Two styles:
 

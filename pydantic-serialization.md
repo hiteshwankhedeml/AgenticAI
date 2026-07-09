@@ -1,13 +1,13 @@
-# Pydantic - Serialization
+# 🟢 Pydantic - Serialization
 
-`model_dump()` :&#x20;
+<mark style="color:purple;background-color:purple;">**`model_dump()`**</mark><mark style="color:purple;background-color:purple;">**&#x20;**</mark><mark style="color:purple;background-color:purple;">**:**</mark>&#x20;
 
-* Returns a plain Python dictionary&#x20;
+* <mark style="color:purple;background-color:purple;">**Returns a plain Python dictionary**</mark>&#x20;
 * Use it when inserting into a database, or passing to another function expecting a dict.
 
-`model_dump_json()` :&#x20;
+<mark style="color:purple;background-color:purple;">**`model_dump_json()`**</mark><mark style="color:purple;background-color:purple;">**&#x20;**</mark><mark style="color:purple;background-color:purple;">**:**</mark>&#x20;
 
-* Returns a JSON string directly&#x20;
+* <mark style="color:purple;background-color:purple;">**Returns a JSON string directly**</mark>&#x20;
 * Use it for HTTP API responses or writing to a `.json`
 
 ```python

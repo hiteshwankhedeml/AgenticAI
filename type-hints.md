@@ -1,7 +1,8 @@
-# Type Hints
+# 🟢 Type Hints
 
-* They tell python and everyone reading the code about the data type of variable
-* Python does not enforce type hints at runtime
+* <mark style="color:purple;background-color:purple;">**They tell Python and everyone reading the code about the data type of variable**</mark>
+* <mark style="color:purple;background-color:purple;">**Python does not enforce type hints at runtime**</mark>
+* <mark style="color:$danger;background-color:purple;">**variable\_name : data\_type = 'value'**</mark>
 
 ```python
 # The four basic types you'll use constantly

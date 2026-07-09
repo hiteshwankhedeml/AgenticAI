@@ -1,13 +1,13 @@
-# Pydantic - Custom Validator
+# 🟢 Pydantic - Custom Validator
 
-* **field\_validator:**&#x20;
-  * per-field custom logic
+* <mark style="color:purple;background-color:purple;">**field\_validator:**</mark>&#x20;
+  * <mark style="color:purple;background-color:purple;">**per-field custom logic**</mark>
   * `@field_validator`, which operates on exactly one field.
   * mode='after' — runs after Pydantic's normal type coercion&#x20;
   * mode = 'before' — 'runs on the raw input before any type coercion is attempted
   * `raise ValueError(...)` to reject the whole model with a clear message
-* &#x20;**model\_validator:**&#x20;
-  * cross-field rules
+* &#x20;<mark style="color:purple;background-color:purple;">**model\_validator:**</mark>&#x20;
+  * <mark style="color:purple;background-color:purple;">**cross-field rules**</mark>
   * `model_validator` receives the entire model, after every individual field has already passed its own checks
 
 ```python

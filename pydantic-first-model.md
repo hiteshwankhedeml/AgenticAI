@@ -1,7 +1,7 @@
-# Pydantic - First Model
+# 🟢 Pydantic - First Model
 
 * @dataclass does not validates — It accepts whatever has been passed
-* BaseModel validates types, and raises a Validation Error if something is mismatch
+* <mark style="color:purple;background-color:purple;">**BaseModel validates types, and raises a Validation Error if something is mismatch**</mark>
 
 ```python
 class UserModel(BaseModel):

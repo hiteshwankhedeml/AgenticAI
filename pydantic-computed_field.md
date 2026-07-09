@@ -1,7 +1,7 @@
-# Pydantic - @computed\_field
+# 🟢 Pydantic - @computed\_field
 
-* For fields which should be derived from other fields....example - BMI
-* It becomes a read only attribute
+* <mark style="color:purple;background-color:purple;">**For fields which should be derived from other fields....example - BMI**</mark>
+* <mark style="color:purple;background-color:purple;">**It becomes a read only attribute**</mark>
 
 ```python
 from pydantic import BaseModel, computed_field

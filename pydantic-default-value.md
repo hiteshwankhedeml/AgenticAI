@@ -1,6 +1,6 @@
-# Pydantic - Default value
+# 🟢 Pydantic - Default value
 
-* &#x20;
+* <mark style="color:purple;background-color:purple;">**Inside the BaseModel, along with the data type we can specify the default value as well**</mark>
 
 ```python
 from pydantic import BaseModel, ValidationError
