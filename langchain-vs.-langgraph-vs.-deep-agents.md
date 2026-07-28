@@ -3,6 +3,8 @@
 <mark style="color:purple;background-color:purple;">**Deep Agents:**</mark>
 
 * <mark style="color:purple;background-color:purple;">Automatic context compression, a virtual filesystem, and subagent-spawning</mark>
+* <mark style="color:purple;background-color:purple;">March 2026</mark>
+* <mark style="color:purple;background-color:purple;">High level of abstraction ⇒ Low level of control</mark>
 
 
 

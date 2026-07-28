@@ -1,6 +1,7 @@
 # 🟢 Pydantic - Default value
 
 * <mark style="color:purple;background-color:purple;">**Inside the BaseModel, along with the data type we can specify the default value as well**</mark>
+* <mark style="color:purple;background-color:purple;">**Fields without a default value are required — Pydantic raises a**</mark><mark style="color:purple;background-color:purple;">**&#x20;**</mark><mark style="color:purple;background-color:purple;">**`ValidationError`**</mark><mark style="color:purple;background-color:purple;">**&#x20;**</mark><mark style="color:purple;background-color:purple;">**if they're missing**</mark>
 
 ```python
 from pydantic import BaseModel, ValidationError
