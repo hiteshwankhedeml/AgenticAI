@@ -1,4 +1,8 @@
-# Raw Client
+---
+hidden: true
+---
+
+# ✈️ Raw Client
 
 * &#x20;
 

@@ -1,13 +1,8 @@
-# Layers of MCP
+# 🟢 Layers of MCP
 
-**Transport Layer**
+<mark style="color:purple;background-color:purple;">**Transport Layer**</mark>
 
-* **Stdio:**
-  * Locally on the same machine&#x20;
-* **Streamable:**
-
-
-
-Data Layer:
-
-*
+* <mark style="color:purple;background-color:purple;">**Stdio:**</mark>
+  * <mark style="color:purple;background-color:purple;">**Locally on the same machine**</mark>&#x20;
+* <mark style="color:purple;background-color:purple;">**Streamable:**</mark>
+  * <mark style="color:purple;background-color:purple;">**Uses HTTP POST for client-to-server messages with optional Server-Sent Events for streaming capabilities**</mark>

@@ -1,4 +1,4 @@
-# MCP Inspector
+# 🟢 MCP Inspector
 
 * We need node for this
 * node -v
@@ -6,7 +6,7 @@
 * npx -v
 * npm init
 * give package name
-* npx @modelcontextprotocol/inspector
+* <mark style="color:purple;background-color:purple;">**npx @modelcontextprotocol/inspector ⇒ this runs this package without installing it permanently**</mark>
 * This will open
 *   We can also create resource, prompts in our MCP...But mostly everyone just create tools in MCP
 

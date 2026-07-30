@@ -1,6 +1,6 @@
-# 3rd Party Hosted MCP
+# 🟢 3rd Party Hosted MCP
 
-* &#x20;We can pass the API key in json in the url
+* <mark style="color:purple;background-color:purple;">**We can pass the API key in json in the url**</mark>
 
 ```python
 from langchain_mcp_adapters.client import MultiServerMCPClient

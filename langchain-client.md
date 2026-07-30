@@ -1,6 +1,17 @@
-# LangChain Client
+# 🟢 LangChain Client
 
-* &#x20;Tools of MCP get converted into langchain tools
+* <mark style="color:purple;background-color:purple;">**Tools of MCP get converted into langchain tools**</mark>
+* <mark style="color:purple;background-color:purple;">**To create a MCP client we need to configure a json in which we specify transport, command, and url or path of the MCP server**</mark>
+*
+
+    ```
+    {
+        "data_fetch_mcp_stdio":{
+            "transport": "stdio",
+            "command": os.path.join(venv_path, "Scripts", "python.exe"),
+            "args": [str(mcp_server_script)]
+        }
+    ```
 
 ```python
 from langchain_mcp_adapters.client import MultiServerMCPClient

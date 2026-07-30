@@ -1,6 +1,14 @@
-# LangChain Client - HTTP
+# 🟢 LangChain Client - HTTP
 
-* &#x20;
+* <mark style="color:purple;background-color:purple;">**We need to specify transport layer and url**</mark>&#x20;
+*
+
+    ```
+            "data_fetch_mcp_http":{
+                            "transport": "streamable-http",
+                "url": "http://localhost:8050/mcp"
+            } 
+    ```
 
 ```python
 from langchain_mcp_adapters.client import MultiServerMCPClient

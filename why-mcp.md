@@ -1,4 +1,10 @@
-# Why MCP
+# 🟢 Why MCP
+
+* <mark style="color:purple;background-color:purple;">**MCP provides a standardized way to connect AI applications to external systems**</mark>
+* <mark style="color:purple;background-color:purple;">**Without it, coders must write new code for every single tool**</mark>
+* <mark style="color:purple;background-color:purple;">**If there is any change, then all the developers will have to make changes in all the applications**</mark>
+
+
 
 **Before MCP:**
 

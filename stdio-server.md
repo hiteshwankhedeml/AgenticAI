@@ -1,13 +1,16 @@
-# Stdio Server
+# 🟢 Stdio Server
 
 * pip install uv
 * uv init
 * .venv/Scripts/activate ⇒ Activate the environment
 * uv add \<package>
-* Use fastmcp
-* @mcp.tool ⇒ decorator to define tool
+* <mark style="color:purple;background-color:purple;">**Use fastmcp library**</mark>
+* <mark style="color:purple;background-color:purple;">**@mcp.tool ⇒ decorator to define tool**</mark>
+* <mark style="color:purple;background-color:purple;">**All the functions are defined as async**</mark>
+* <mark style="color:purple;background-color:purple;">**When we run the server we specify stdio as transport layer**</mark>
+*
 
-stdio server:
+**stdio server:**
 
 ```python
 from fastmcp import FastMCP

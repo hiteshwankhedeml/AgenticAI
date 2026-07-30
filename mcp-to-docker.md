@@ -1,6 +1,8 @@
-# MCP to Docker
+# 🟢 MCP to Docker
 
-* &#x20;
+* <mark style="color:purple;background-color:purple;">**install uv**</mark>
+* <mark style="color:purple;background-color:purple;">**install fastmcp**</mark>
+* <mark style="color:purple;background-color:purple;">**run the mcp server**</mark>
 
 ```docker
 FROM python:3.11-slim

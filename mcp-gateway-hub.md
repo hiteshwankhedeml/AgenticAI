@@ -1,8 +1,8 @@
-# MCP Gateway/Hub
+# 🟢 MCP Gateway/Hub
 
-* We might have to work lots of MCP
-* We can connect a gateway and connect to gateway
-* We can mount multiple MCP
+* <mark style="color:purple;background-color:purple;">**We might have to work lots of MCP**</mark>
+* <mark style="color:purple;background-color:purple;">**We can connect a gateway and connect to gateway**</mark>
+* <mark style="color:purple;background-color:purple;">**We can mount multiple MCP as @mcp.mount and specifying json for connecting to MCP**</mark>
 
 ```python
 from fastmcp import FastMCP

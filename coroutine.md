@@ -1,4 +1,8 @@
-# CoRoutine
+---
+hidden: true
+---
+
+# ✈️ CoRoutine
 
 * Allows asynchronous calls to the function
 * async def
