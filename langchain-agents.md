@@ -7,6 +7,11 @@
 * uv init
 * uv add langchain
 * There are other smaller packages also like langchain-openai
+* <mark style="color:purple;background-color:purple;">**In the below example,**</mark>&#x20;
+  * <mark style="color:purple;background-color:purple;">**We sent a human message**</mark>
+  * <mark style="color:purple;background-color:purple;">**In AI message we got a tool\_call ⇒ tool was executed**</mark>
+  * <mark style="color:purple;background-color:purple;">**Tool Message**</mark>
+  * <mark style="color:purple;background-color:purple;">**AI message**</mark>
 
 ```python
 # pip install -qU langchain "langchain[openai]"

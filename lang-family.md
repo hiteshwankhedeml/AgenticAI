@@ -1,7 +1,7 @@
-# Lang Family
+# 🟢 Lang Family
 
-* LangGraph, LangChain, DeepAgents ⇒  Building agents
-* LangChain is built on top of LangGraph
+* <mark style="color:purple;background-color:purple;">**LangGraph, LangChain, DeepAgents ⇒  Building agents**</mark>
+* <mark style="color:purple;background-color:purple;">**LangChain is built on top of LangGraph**</mark>
 *   LangSmith ⇒ Observability
 
 
