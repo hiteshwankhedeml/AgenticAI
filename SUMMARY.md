@@ -28,7 +28,7 @@
 * [🟢 Agent](agent.md)
 * [🟢 Agentic AI](agentic-ai.md)
 * [🟢 LangChain overview](langchain-overview.md)
-* [LangChain Journey](langchain-journey.md)
+* [🟢 LangChain Journey](langchain-journey.md)
 * [🟢 LangChain vs. LangGraph vs. Deep Agents](langchain-vs.-langgraph-vs.-deep-agents.md)
 * [🟢 Lang Family](lang-family.md)
 * [🟢 LangChain Agents](langchain-agents.md)
