@@ -1,2 +1,0 @@
-# Few Shot Prompting
-

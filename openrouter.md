@@ -1,4 +1,8 @@
-# OpenRouter
+---
+hidden: true
+---
+
+# ✈️ OpenRouter
 
 * Models by all providers
 * There are free models as well

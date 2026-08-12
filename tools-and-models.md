@@ -1,9 +1,9 @@
-# Tools & Models
+# 🟢 Tools & Models
 
-* We create functions
-* We bind this functions as tools to the model
-* response.tools ⇒ We will get tool name which will get called and with which arguments
-* So we get the output or we get the tool which needs to be called
+* <mark style="color:purple;background-color:purple;">**We create functions**</mark>
+* <mark style="color:purple;background-color:purple;">**We bind this functions as tools to the model**</mark>
+* <mark style="color:purple;background-color:purple;">**response.tools ⇒ We will get tool name which will get called and with which arguments**</mark>
+* <mark style="color:purple;background-color:purple;">**So we get the output or we get the tool which needs to be called**</mark>
 *
 
     <figure><img src=".gitbook/assets/{63982956-6B3E-415D-A298-A17CB09B01E5}.png" alt=""><figcaption></figcaption></figure>

@@ -1,11 +1,11 @@
-# AI Performance Troubleshoot
+# 🟢 AI Performance Troubleshoot
 
-* We only have system message to provide to the user
-* Rather than bulking the message, added system message, user message and AI message
-* Using this AI will learn what is expected
-* This is also called few shot prompting
-* This is also like giving a short term memory
-* This can also be passed as dictionary format
+* <mark style="color:purple;background-color:purple;">**We only have system message to provide to the user**</mark>
+* <mark style="color:purple;background-color:purple;">**Rather than bulking the message, added system message, user message and AI message**</mark>
+* <mark style="color:purple;background-color:purple;">**Using this AI will learn what is expected**</mark>
+* <mark style="color:purple;background-color:purple;">**This is also called few shot prompting**</mark>
+* <mark style="color:purple;background-color:purple;">**This is also like giving a short term memory**</mark>
+* <mark style="color:purple;background-color:purple;">**This can also be passed as dictionary format**</mark>
 
 ```python
 messages = [
