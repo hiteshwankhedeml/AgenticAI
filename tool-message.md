@@ -5,3 +5,5 @@
 * We can pass the ai message and tool message to langchain to get the tool output then
 *
 
+    <figure><img src=".gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+
