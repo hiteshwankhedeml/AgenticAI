@@ -1,7 +1,10 @@
 # 🟢 Agent
 
 * <mark style="color:purple;background-color:purple;">**LLM + Memory + Tools**</mark>
-*   <mark style="color:purple;background-color:purple;">**An agent is a model calling tools in a loop until the task is done**</mark>
+* <mark style="color:purple;background-color:purple;">**An agent is a model calling tools in a loop until the task is done**</mark>
+*
+
+    <figure><img src=".gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
 
     <figure><img src=".gitbook/assets/{AA2D4466-9A68-49ED-B776-7429080DA82E}.png" alt=""><figcaption></figcaption></figure>
 * <mark style="color:purple;background-color:purple;">**Agent will 1st check the memory, then check the message**</mark>
@@ -13,3 +16,4 @@
 *
 
     <figure><img src=".gitbook/assets/{0F633E56-4CFA-45FA-BD33-B16B4B686819}.png" alt=""><figcaption></figcaption></figure>
+
