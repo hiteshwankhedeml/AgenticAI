@@ -1,29 +1,19 @@
-# Agent
+# 🟢 Agent
 
-* Created using model and tools and returns compiled langGraph graph
-* We can also give it
-  * system\_prompt
-  * response\_format
-  * state\_schema
-  * context\_schema
-  * checkpointer
-  * middleware
-  * name
-* Agent state is a dictionary like structure which holds everything that the agents knows including messages
-* New messages are always appended to the list
-* Invoke agent ⇒ agent.invoke({"messages": \[{"role": "user", "content": "..."}]}, config={"configurable": {"thread\_id": "..."\}})
-* thread\_id ⇒ to let conversation continue across call
-* checkpointer ⇒ to store the history ⇒ InMemorySaver() to store it locally
-* Model strings are prefixed by provider: `openai:`, `anthropic:`, `google_genai:`&#x20;
+* <mark style="color:purple;background-color:purple;">**LLM + Memory + Tools**</mark>
+* <mark style="color:purple;background-color:purple;">**An agent is a model calling tools in a loop until the task is done**</mark>
+*
 
-```python
-agent = create_agent(
-    model="anthropic:claude-sonnet-4-6",
-    tools=[get_weather],
-    system_prompt="You are a helpful assistant.",
-    checkpointer=InMemorySaver(),        # required for thread_id memory
-)
-cfg = {"configurable": {"thread_id": "1"}}
-result = agent.invoke({"messages": [{"role": "user", "content": "weather in SF?"}]}, config=cfg)
-result["messages"][-1].text
-```
+    <figure><img src=".gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+
+    <figure><img src=".gitbook/assets/{AA2D4466-9A68-49ED-B776-7429080DA82E}.png" alt=""><figcaption></figcaption></figure>
+* <mark style="color:purple;background-color:purple;">**Agent will 1st check the memory, then check the message**</mark>
+* <mark style="color:purple;background-color:purple;">**If we ask a query for which a tool call is needed, then LLM will call the tool, get the repsonse and then LLM will answer the query — Here LLM will be called twice**</mark>
+* <mark style="color:purple;background-color:purple;">**And once its done, it will update the memory**</mark>
+*
+
+    <figure><img src=".gitbook/assets/{A9383765-1158-4C87-8A89-6257B42C420E}.png" alt=""><figcaption></figcaption></figure>
+*
+
+    <figure><img src=".gitbook/assets/{0F633E56-4CFA-45FA-BD33-B16B4B686819}.png" alt=""><figcaption></figcaption></figure>
+
