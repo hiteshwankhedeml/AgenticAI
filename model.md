@@ -1,5 +1,6 @@
 # 🟢 Model
 
+* Can we utilized with agents or standalone
 * Use invoke to intialize a model
   * invoke
   * Stream
