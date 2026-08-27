@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # Context Window
 
 * Everything a model can see at once — your message, its own earlier replies, any document you've shared — has a hard limit.&#x20;

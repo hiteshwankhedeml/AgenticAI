@@ -8,4 +8,4 @@
 * Frameworks like Pydantic are built on top of this idea, adding validation, serialization, and parsing—essential for LLM structured outputs and tool calling
 *
 
-    <figure><img src=".gitbook/assets/{DFE7A8C3-A773-4919-9492-91FE6AAB1B5A}.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/{DFE7A8C3-A773-4919-9492-91FE6AAB1B5A}.png" alt=""><figcaption></figcaption></figure>

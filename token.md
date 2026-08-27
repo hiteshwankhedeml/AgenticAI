@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # Token
 
 * Before a model can predict anything, your sentence gets broken into chunks — not full words, not single letters, but pieces landed on during training.&#x20;
