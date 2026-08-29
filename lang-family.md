@@ -1,4 +1,8 @@
-# 🟢 Lang Family
+---
+hidden: true
+---
+
+# ✈️ Lang Family
 
 * <mark style="color:purple;background-color:purple;">**LangGraph, LangChain, DeepAgents ⇒  Building agents**</mark>
 * <mark style="color:purple;background-color:purple;">**LangChain is built on top of LangGraph**</mark>

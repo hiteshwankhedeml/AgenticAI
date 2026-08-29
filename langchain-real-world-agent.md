@@ -1,4 +1,8 @@
-# 🟢 LangChain Real World Agent
+---
+hidden: true
+---
+
+# ✈️ LangChain Real World Agent
 
 1. <mark style="color:purple;background-color:purple;">**Detailed system prompts**</mark> <mark style="color:purple;background-color:purple;"></mark><mark style="color:purple;background-color:purple;">for better agent behavior</mark>
 2. <mark style="color:purple;background-color:purple;">**Create tools**</mark> <mark style="color:purple;background-color:purple;"></mark><mark style="color:purple;background-color:purple;">that integrate with external data</mark>
