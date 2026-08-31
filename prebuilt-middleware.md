@@ -35,13 +35,22 @@ agent = create_agent(
 **Summarization:**&#x20;
 
 * Automatically summarize conversation history when approaching token limits, preserving recent messages while compressing older context
+* It needs LLM&#x20;
+* We need to specify either the number of tokens or no of messages when summarization needs to be done
+* We need to specify no. of token to be kept after summarization and no. of last messages to be retained
 * Recent messages retained by `keep` still include their original multimodal blocks, while older multimodal messages that are summarized are represented only by the generated text summary.&#x20;
-* middleware=\[  &#x20;SummarizationMiddleware(  &#x20;model="gpt-5.4-mini",  &#x20;trigger=("tokens", 4000),  \
-  keep=("messages", 20),  &#x20;)
+* We can also pass summary prompt
+
+```python
+middleware=[ SummarizationMiddleware( model="gpt-5.4-mini", trigger=("tokens", 4000),
+keep=("messages", 20), )
+```
 
 **Human in the loop:**
 
 * requires a [checkpointer](https://docs.langchain.com/oss/python/langgraph/checkpointers#checkpoints) to maintain state across interruptions.
+* If we specify False then for that tool it won't interrupt
+* The decisions for which we want interrupt needs to be specified
 
 ```python
 from langchain.agents import create_agent

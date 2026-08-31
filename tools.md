@@ -1,12 +1,12 @@
-# Tools
+# 🟢 Tools
 
-* Tools extend what [agents](https://docs.langchain.com/oss/python/langchain/agents) can do—letting them fetch real-time data, execute code, query external databases, and take actions in the world.
-* They are just callable function with @tool decorator
-* The function’s docstring becomes the tool’s description that helps the model understand when to use it
-* Type hints are required as they define the tool’s input schema.
-* @tool("calculator", description="Performs arithmetic calc ⇒ To give custom name and description
-* config, runtime ⇒ cannot be used in parameters in tool ⇒ It will give when the tool gets called by agent
-* Tools are most powerful when they can access runtime information like conversation history, user data, and persistent memory ⇒ This can be access using ToolRunTime which has below fields
+* <mark style="color:purple;background-color:purple;">**Tools extend what**</mark> [<mark style="color:purple;background-color:purple;">**agents**</mark>](https://docs.langchain.com/oss/python/langchain/agents) <mark style="color:purple;background-color:purple;">**can do—letting them fetch real-time data, execute code, query external databases, and take actions in the world.**</mark>
+* <mark style="color:purple;background-color:purple;">**They are just callable function with @tool decorator**</mark>
+* <mark style="color:purple;background-color:purple;">**The function’s docstring becomes the tool’s description that helps the model understand when to use it**</mark>
+* <mark style="color:purple;background-color:purple;">**Type hints are required as they define the tool’s input schema.**</mark>
+* <mark style="color:purple;background-color:purple;">**@tool("calculator", description="Performs arithmetic calc ⇒ To give custom name and description**</mark>
+* <mark style="color:purple;background-color:purple;">**config, runtime ⇒ cannot be used in parameters in tool ⇒ It will give when the tool gets called by agent**</mark>
+* <mark style="color:purple;background-color:purple;">**Tools are most powerful when they can access runtime information like conversation history, user data, and persistent memory ⇒ This can be access using ToolRunTime which has below fields**</mark>
   *
 
       | Component          | Description                                                                                                                 | Use case                                                                                                                                                |
@@ -60,9 +60,9 @@ def get_weather(location: str, units: str = "celsius", include_forecast: bool = 
     return result
 ```
 
-**Headless Tools:**
+<mark style="color:purple;background-color:purple;">**Headless Tools:**</mark>
 
-* Use them when the work depends on the **environment, device, or UI** that only exists on the client.
-* A headless tool is schema-only, with no in-process implementation.
-* Instead of running locally, the graph pauses
-* **Resume** the graph after your app, another service, or a human step performs the action.
+* <mark style="color:purple;background-color:purple;">**Use them when the work depends on the environment, device, or UI that only exists on the client.**</mark>
+* <mark style="color:purple;background-color:purple;">**A headless tool is schema-only, with no in-process implementation.**</mark>
+* <mark style="color:purple;background-color:purple;">**Instead of running locally, the graph pauses**</mark>
+* <mark style="color:purple;background-color:purple;">**Resume the graph after your app, another service, or a human step performs the action.**</mark>
