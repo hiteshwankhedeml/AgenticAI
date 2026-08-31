@@ -1,12 +1,12 @@
 # Prebuilt Middleware
 
-* LangChain and [Deep Agents](https://docs.langchain.com/oss/python/deepagents/overview) provide prebuilt middleware for common use cases
-* Below work with all LLM
+* <mark style="color:purple;background-color:purple;">**LangChain and**</mark> [<mark style="color:purple;background-color:purple;">**Deep Agents**</mark>](https://docs.langchain.com/oss/python/deepagents/overview) <mark style="color:purple;background-color:purple;">**provide prebuilt middleware for common use cases**</mark>
+* <mark style="color:purple;background-color:purple;">**Below work with all LLM**</mark>
 
-**ToolError:**
+<mark style="color:purple;background-color:purple;">**ToolError:**</mark>
 
-* Catch exceptions raised during tool execution and convert them into error `ToolMessage`s that the model can see and recover from and retry with corrected arguments
-* We define a function on\_error inside which we format the error message and this function is passed inside ToolErrorMiddleware to the LLM
+* <mark style="color:purple;background-color:purple;">**Catch exceptions raised during tool execution and convert them into error**</mark><mark style="color:purple;background-color:purple;">**&#x20;**</mark><mark style="color:purple;background-color:purple;">**`ToolMessage`**</mark><mark style="color:purple;background-color:purple;">**s that the model can see and recover from and retry with corrected arguments**</mark>
+* <mark style="color:purple;background-color:purple;">**We define a function on\_error inside which we format the error message and this function is passed inside ToolErrorMiddleware to the LLM**</mark>
 
 ```python
 def on_error(exc: Exception, request: ToolCallRequest) -> str | None:
@@ -20,37 +20,43 @@ agent = create_agent(
 )
 ```
 
-**Tool retry:**
+<mark style="color:purple;background-color:purple;">**Tool retry:**</mark>
 
-* Automatically retry failed tool calls with configurable exponential backoff incase of network errors
-* middleware=\[  &#x20;ToolRetryMiddleware(  &#x20;max\_retries=3,  &#x20;backoff\_factor=2.0,  &#x20;initial\_delay=1.0,  &#x20;),  &#x20;]
+* <mark style="color:purple;background-color:purple;">**Automatically retry failed tool calls with configurable exponential backoff incase of network errors**</mark>
+* <mark style="color:purple;background-color:purple;">**middleware=\[  &#x20;ToolRetryMiddleware(  &#x20;max\_retries=3,  &#x20;backoff\_factor=2.0,  &#x20;initial\_delay=1.0,  &#x20;),  &#x20;]**</mark>
 
-**Model retry: R**etry failed model calls
+<mark style="color:purple;background-color:purple;">**Model retry: Retry failed model calls**</mark>
 
-**Model Fallback:**&#x20;
+<mark style="color:purple;background-color:purple;">**Model Fallback:**</mark>&#x20;
 
-* Automatically fallback to alternative models when the primary model fails
-* middleware=\[  &#x20;ModelFallbackMiddleware(  &#x20;"gpt-5.4-mini",  &#x20;"claude-3-5-sonnet-20241022",  ),  ]
+* <mark style="color:purple;background-color:purple;">**Automatically fallback to alternative models when the primary model fails**</mark>
+* <mark style="color:purple;background-color:purple;">**We can have multiple fallback**</mark>
+* <mark style="color:purple;background-color:purple;">**middleware=\[  &#x20;ModelFallbackMiddleware(  &#x20;"gpt-5.4-mini",  &#x20;"claude-3-5-sonnet-20241022",  ),  ]**</mark>
 
-**Summarization:**&#x20;
+<mark style="color:purple;background-color:purple;">**Summarization:**</mark>&#x20;
 
-* Automatically summarize conversation history when approaching token limits, preserving recent messages while compressing older context
-* It needs LLM&#x20;
-* We need to specify either the number of tokens or no of messages when summarization needs to be done
-* We need to specify no. of token to be kept after summarization and no. of last messages to be retained
-* Recent messages retained by `keep` still include their original multimodal blocks, while older multimodal messages that are summarized are represented only by the generated text summary.&#x20;
-* We can also pass summary prompt
+* <mark style="color:purple;background-color:purple;">**Automatically summarize conversation history when approaching token limits, preserving recent messages while compressing older context**</mark>
+* <mark style="color:purple;background-color:purple;">**It needs LLM**</mark>&#x20;
+* <mark style="color:purple;background-color:purple;">**We need to specify either the number of tokens or no of messages when summarization needs to be done**</mark>
+* <mark style="color:purple;background-color:purple;">**We need to specify no. of token to be kept after summarization and no. of last messages to be retained**</mark>
+* <mark style="color:purple;background-color:purple;">**Recent messages retained by**</mark><mark style="color:purple;background-color:purple;">**&#x20;**</mark><mark style="color:purple;background-color:purple;">**`keep`**</mark><mark style="color:purple;background-color:purple;">**&#x20;**</mark><mark style="color:purple;background-color:purple;">**still include their original multimodal blocks, while older multimodal messages that are summarized are represented only by the generated text summary.**</mark>&#x20;
+* <mark style="color:purple;background-color:purple;">**We can also pass summary prompt**</mark>
 
 ```python
 middleware=[ SummarizationMiddleware( model="gpt-5.4-mini", trigger=("tokens", 4000),
 keep=("messages", 20), )
 ```
 
-**Human in the loop:**
+<mark style="color:purple;background-color:purple;">**Human in the loop:**</mark>
 
-* requires a [checkpointer](https://docs.langchain.com/oss/python/langgraph/checkpointers#checkpoints) to maintain state across interruptions.
-* If we specify False then for that tool it won't interrupt
-* The decisions for which we want interrupt needs to be specified
+* <mark style="color:purple;background-color:purple;">**requires a**</mark> [<mark style="color:purple;background-color:purple;">**checkpointer**</mark>](https://docs.langchain.com/oss/python/langgraph/checkpointers#checkpoints) <mark style="color:purple;background-color:purple;">**to maintain state across interruptions.**</mark>
+* <mark style="color:purple;background-color:purple;">**If we specify False then for that tool it won't interrupt**</mark>
+* <mark style="color:purple;background-color:purple;">**The decisions for which we want interrupt needs to be specified**</mark>
+* <mark style="color:purple;background-color:purple;">**The human can have below options:**</mark>
+  * <mark style="color:purple;background-color:purple;">**Allow**</mark>
+  * <mark style="color:purple;background-color:purple;">**Reject**</mark>
+  * <mark style="color:purple;background-color:purple;">**Edit ⇒ Edit the tool arguments before execution**</mark>
+  * <mark style="color:purple;background-color:purple;">**Respond ⇒ Return the human message directly as a syntehtic tool result**</mark>
 
 ```python
 from langchain.agents import create_agent
@@ -83,16 +89,16 @@ agent = create_agent(
 )
 ```
 
-**Model Call Limit**
+<mark style="color:purple;background-color:purple;">**Model Call Limit**</mark>
 
-**Tool Call Limit:**
+<mark style="color:purple;background-color:purple;">**Tool Call Limit:**</mark>
 
-* Either globally across all tools or for specific tools
+* <mark style="color:purple;background-color:purple;">**Either globally across all tools or for specific tools**</mark>
 
-**PII Detection:**
+<mark style="color:purple;background-color:purple;">**PII Detection:**</mark>
 
-* There are lot of PII types which are available by default&#x20;
-* For custom we can either write a regex or also create detector function in which we will pass the content and it will return the detections
+* <mark style="color:purple;background-color:purple;">**There are lot of PII types which are available by default**</mark>&#x20;
+* <mark style="color:purple;background-color:purple;">**For custom we can either write a regex or also create detector function in which we will pass the content and it will return the detections**</mark>
 
 ```python
 from langchain.agents import create_agent
@@ -139,18 +145,18 @@ def detect_ssn(content: str) -> list[PIIMatch]:
 
 ```
 
-**LLM Tool Selector:**
+<mark style="color:purple;background-color:purple;">**LLM Tool Selector:**</mark>
 
-* Select relevant tools before calling the main model
-* Agents with many tools (10+) where most aren’t relevant per query.
-* Reducing token usage by filtering irrelevant tools.
-* LLMToolSelectorMiddleware(  &#x20;model="gpt-5.4-mini",  &#x20;max\_tools=3,  &#x20;always\_include=\["search"],  &#x20;)
+* <mark style="color:purple;background-color:purple;">**Select relevant tools before calling the main model**</mark>
+* <mark style="color:purple;background-color:purple;">**Agents with many tools (10+) where most aren’t relevant per query.**</mark>
+* <mark style="color:purple;background-color:purple;">**Reducing token usage by filtering irrelevant tools.**</mark>
+* <mark style="color:purple;background-color:purple;">**LLMToolSelectorMiddleware(  &#x20;model="gpt-5.4-mini",  &#x20;max\_tools=3,  &#x20;always\_include=\["search"],  &#x20;)**</mark>
 
-**Provider Tool Search:**
+<mark style="color:purple;background-color:purple;">**Provider Tool Search:**</mark>
 
-* Defer selected tools behind model providers’ server-side tool search, so the model discovers them on demand instead of receiving every tool schema up front
-* Requires a model with server-side tool search support: Anthropic (Claude Sonnet 4+/Opus 4+/Haiku 4.5+) or OpenAI (gpt-5.5+).
-* ProviderToolSearchMiddleware(searchable\_tools=\["lookup\_order"])
+* <mark style="color:purple;background-color:purple;">**Defer selected tools behind model providers’ server-side tool search, so the model discovers them on demand instead of receiving every tool schema up front**</mark>
+* <mark style="color:purple;background-color:purple;">**Requires a model with server-side tool search support: Anthropic (Claude Sonnet 4+/Opus 4+/Haiku 4.5+) or OpenAI (gpt-5.5+).**</mark>
+* <mark style="color:purple;background-color:purple;">**ProviderToolSearchMiddleware(searchable\_tools=\["lookup\_order"])**</mark>
 
-**Shell Tool:** Expose a persistent shell session to agents for command execution
+<mark style="color:purple;background-color:purple;">**Shell Tool: Expose a persistent shell session to agents for command execution**</mark>
 
