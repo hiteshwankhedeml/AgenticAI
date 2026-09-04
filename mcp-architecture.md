@@ -1,20 +1,25 @@
-# 🟢 MCP Architecture
+# MCP Architecture
 
-* <mark style="color:purple;background-color:purple;">**MCP SDKs abstract away many concerns**</mark>
-* <mark style="color:purple;background-color:purple;">**If we create a langchain application which used MCP**</mark>
-* <mark style="color:purple;background-color:purple;">**YOUR APP (Host)**</mark>  \ <mark style="color:purple;background-color:purple;">**├── Client 1 → Server A (e.g., database)**</mark>  \ <mark style="color:purple;background-color:purple;">**├── Client 2 → Server B (e.g., GitHub)**</mark>  \ <mark style="color:purple;background-color:purple;">**└── Client 3 → Server C (e.g., Slack)**</mark>
-*
+* Client server architecture
 
+**Participants:**
 
+* **MCP Host**: The AI application that coordinates and manages one or multiple MCP clients
+* **MCP Client**: A component that maintains a connection to an MCP server and obtains context from an MCP server for the MCP host to use
+* **MCP Server**:&#x20;
+  * A program that provides context to MCP clients
+  * It provides Tools, Resources and Prompts
+  * Resources like file content, documentation
 
-<mark style="color:purple;background-color:purple;">**Component:**</mark>
+**Example:**
 
-* <mark style="color:purple;background-color:purple;">**MCP Host:**</mark> Environment from where we have build the connection, if we are calling from python then python is our host, if we are using claude then it is our host
-* <mark style="color:purple;background-color:purple;">**MCP Client: The connector code inside your app**</mark>
-* <mark style="color:purple;background-color:purple;">**MCP Server:**</mark>
-*
+* Visual Studio Code acts as an MCP host.&#x20;
+* When Visual Studio Code establishes a connection to an MCP server, the Visual Studio Code runtime instantiates an MCP client object that maintains the connection to the Sentry MCP server.
+* When Visual Studio Code subsequently connects to another MCP server the Visual Studio Code runtime instantiates an additional MCP client object to maintain this connection.
 
-    <figure><img src=".gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
-*
+**Layers:**
 
-    <figure><img src=".gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+* **Data layer**:&#x20;
+  * Defines the JSON-RPC based protocol for client-server communication, including capability and version discovery, and core primitives, such as tools, resources, prompts and notifications.
+* **Transport layer**:&#x20;
+  * Defines the communication mechanisms and channels that enable data exchange between clients and servers, including transport-specific connection establishment, message framing, and authorization.
