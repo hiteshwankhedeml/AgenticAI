@@ -1,4 +1,4 @@
-# Prebuilt Middleware
+# 🟢 Prebuilt Middleware
 
 * <mark style="color:purple;background-color:purple;">**LangChain and**</mark> [<mark style="color:purple;background-color:purple;">**Deep Agents**</mark>](https://docs.langchain.com/oss/python/deepagents/overview) <mark style="color:purple;background-color:purple;">**provide prebuilt middleware for common use cases**</mark>
 * <mark style="color:purple;background-color:purple;">**Below work with all LLM**</mark>
@@ -7,6 +7,7 @@
 
 * <mark style="color:purple;background-color:purple;">**Catch exceptions raised during tool execution and convert them into error**</mark><mark style="color:purple;background-color:purple;">**&#x20;**</mark><mark style="color:purple;background-color:purple;">**`ToolMessage`**</mark><mark style="color:purple;background-color:purple;">**s that the model can see and recover from and retry with corrected arguments**</mark>
 * <mark style="color:purple;background-color:purple;">**We define a function on\_error inside which we format the error message and this function is passed inside ToolErrorMiddleware to the LLM**</mark>
+* <mark style="color:purple;background-color:purple;">**So that the LLM can retry**</mark>&#x20;
 
 ```python
 def on_error(exc: Exception, request: ToolCallRequest) -> str | None:
@@ -24,6 +25,26 @@ agent = create_agent(
 
 * <mark style="color:purple;background-color:purple;">**Automatically retry failed tool calls with configurable exponential backoff incase of network errors**</mark>
 * <mark style="color:purple;background-color:purple;">**middleware=\[  &#x20;ToolRetryMiddleware(  &#x20;max\_retries=3,  &#x20;backoff\_factor=2.0,  &#x20;initial\_delay=1.0,  &#x20;),  &#x20;]**</mark>
+
+<mark style="color:purple;background-color:purple;">**LLM Tool Emulator:**</mark>
+
+* <mark style="color:purple;background-color:purple;">**Emulate tool execution using an LLM for testing purposes, replacing actual tool calls with AI-generated responses**</mark>
+* <mark style="color:purple;background-color:purple;">**Testing agent behavior without executing real tools.**</mark>
+* <mark style="color:purple;background-color:purple;">**Developing agents when external tools are unavailable or expensive.**</mark>
+* <mark style="color:purple;background-color:purple;">**Prototyping agent workflows before implementing actual tools.**</mark>
+
+```python
+from langchain.agents import create_agent
+from langchain.agents.middleware import LLMToolEmulator
+
+agent = create_agent(
+    model="gpt-5.5",
+    tools=[get_weather, search_database, send_email],
+    middleware=[
+        LLMToolEmulator(),  # Emulate all tools
+    ],
+)
+```
 
 <mark style="color:purple;background-color:purple;">**Model retry: Retry failed model calls**</mark>
 
@@ -57,6 +78,8 @@ keep=("messages", 20), )
   * <mark style="color:purple;background-color:purple;">**Reject**</mark>
   * <mark style="color:purple;background-color:purple;">**Edit ⇒ Edit the tool arguments before execution**</mark>
   * <mark style="color:purple;background-color:purple;">**Respond ⇒ Return the human message directly as a syntehtic tool result**</mark>
+* <mark style="color:purple;background-color:purple;">**Human input will be passed by using the same config and in invokes**</mark>
+* <mark style="color:purple;background-color:purple;">**graph.invoke(Command(resume={"decisions": \[{"type": "approve"}]}),config=config)**</mark>
 
 ```python
 from langchain.agents import create_agent
@@ -145,6 +168,21 @@ def detect_ssn(content: str) -> list[PIIMatch]:
 
 ```
 
+<mark style="color:purple;background-color:purple;">**To-do list:**</mark>
+
+* <mark style="color:purple;background-color:purple;">**Equip agents with task planning and tracking capabilities for complex multi-step tasks.**</mark>
+
+```python
+from langchain.agents import create_agent
+from langchain.agents.middleware import TodoListMiddleware
+
+agent = create_agent(
+    model="gpt-5.5",
+    tools=[read_file, write_file, run_tests],
+    middleware=[TodoListMiddleware()],
+)
+```
+
 <mark style="color:purple;background-color:purple;">**LLM Tool Selector:**</mark>
 
 * <mark style="color:purple;background-color:purple;">**Select relevant tools before calling the main model**</mark>
@@ -158,5 +196,33 @@ def detect_ssn(content: str) -> list[PIIMatch]:
 * <mark style="color:purple;background-color:purple;">**Requires a model with server-side tool search support: Anthropic (Claude Sonnet 4+/Opus 4+/Haiku 4.5+) or OpenAI (gpt-5.5+).**</mark>
 * <mark style="color:purple;background-color:purple;">**ProviderToolSearchMiddleware(searchable\_tools=\["lookup\_order"])**</mark>
 
-<mark style="color:purple;background-color:purple;">**Shell Tool: Expose a persistent shell session to agents for command execution**</mark>
+<mark style="color:purple;background-color:purple;">**Shell Tool:**</mark>&#x20;
+
+* <mark style="color:purple;background-color:purple;">**Expose a persistent shell session to agents for command execution**</mark>
+* <mark style="color:purple;background-color:purple;">**Agents that need to execute system commands**</mark>
+* <mark style="color:purple;background-color:purple;">**Development and deployment automation tasks**</mark>
+* <mark style="color:purple;background-color:purple;">**Testing and validation workflows**</mark>
+* <mark style="color:purple;background-color:purple;">**File system operations and script execution**</mark>
+* <mark style="color:purple;background-color:purple;">**Use appropriate execution policies (**</mark><mark style="color:purple;background-color:purple;">**`HostExecutionPolicy`**</mark><mark style="color:purple;background-color:purple;">**,**</mark><mark style="color:purple;background-color:purple;">**&#x20;**</mark><mark style="color:purple;background-color:purple;">**`DockerExecutionPolicy`**</mark><mark style="color:purple;background-color:purple;">**, or**</mark><mark style="color:purple;background-color:purple;">**&#x20;**</mark><mark style="color:purple;background-color:purple;">**`CodexSandboxExecutionPolicy`**</mark><mark style="color:purple;background-color:purple;">**) to match your deployment’s security requirements.**</mark>
+* <mark style="color:purple;background-color:purple;">**Persistent shell sessions do not currently work with interrupts (human-in-the-loop). We anticipate adding support for this in the future.**</mark>
+* <mark style="color:purple;background-color:purple;">**We can treat it as a tool, which is called by AI, it will access the file system where it's running**</mark>
+
+```python
+from langchain.agents import create_agent
+from langchain.agents.middleware import (
+    ShellToolMiddleware,
+    HostExecutionPolicy,
+)
+
+agent = create_agent(
+    model="gpt-5.5",
+    tools=[search_tool],
+    middleware=[
+        ShellToolMiddleware(
+            workspace_root="/workspace",
+            execution_policy=HostExecutionPolicy(),
+        ),
+    ],
+)
+```
 
