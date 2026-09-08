@@ -1,10 +1,11 @@
 # 🟢 Structured Output
 
 * <mark style="color:purple;background-color:purple;">**To return data in a specific, predictable format**</mark>
-* <mark style="color:purple;background-color:purple;">**Pass it in response\_format while creating the agent**</mark>
-  * <mark style="color:purple;background-color:purple;">**`ToolStrategy[StructuredResponseT]`**</mark><mark style="color:purple;background-color:purple;">**: Uses tool calling for structured output**</mark>
-  * <mark style="color:purple;background-color:purple;">**`ProviderStrategy[StructuredResponseT]`**</mark><mark style="color:purple;background-color:purple;">**:**</mark>&#x20;
-    * <mark style="color:purple;background-color:purple;">**if the model and provider chosen supports native structured output**</mark>
+* <mark style="color:red;background-color:purple;">**Pass it in response\_format while creating the agent**</mark>
+  * <mark style="color:red;background-color:purple;">**`ToolStrategy[StructuredResponseT]`**</mark><mark style="color:red;background-color:purple;">**: Uses tool calling for structured output**</mark>
+    * <mark style="color:red;background-color:purple;">**While passing this to agent we need to pass pydantic object**</mark>
+  * <mark style="color:red;background-color:purple;">**`ProviderStrategy[StructuredResponseT]`**</mark><mark style="color:red;background-color:purple;">**:**</mark>&#x20;
+    * <mark style="color:red;background-color:purple;">**if the model and provider chosen supports native structured output**</mark>
   * <mark style="color:purple;background-color:purple;">**`type[StructuredResponseT]`**</mark><mark style="color:purple;background-color:purple;">**: Schema type - automatically selects best strategy based on model capabilities**</mark>
   * <mark style="color:purple;background-color:purple;">**`None`**</mark><mark style="color:purple;background-color:purple;">**: Structured output not explicitly requested**</mark>
 
@@ -96,8 +97,8 @@ Name: MeetingAction
 Action item captured and added to meeting notes!
 ```
 
-<mark style="color:purple;background-color:purple;">**Error Handling:**</mark>
+<mark style="color:red;background-color:purple;">**Error Handling:**</mark>
 
-* <mark style="color:purple;background-color:purple;">**Models can make mistakes when generating structured output via tool calling.**</mark>&#x20;
-* <mark style="color:purple;background-color:purple;">**LangChain provides intelligent retry mechanisms to handle these errors automatically.**</mark>
-* <mark style="color:purple;background-color:purple;">**When a model incorrectly calls multiple structured output tools, the agent provides error feedback in a**</mark> [<mark style="color:purple;background-color:purple;">**`ToolMessage`**</mark>](https://reference.langchain.com/python/langchain-core/messages/tool/ToolMessage) <mark style="color:purple;background-color:purple;">**and prompts the model to retry**</mark>
+* <mark style="color:red;background-color:purple;">**Models can make mistakes when generating structured output via tool calling.**</mark>&#x20;
+* <mark style="color:red;background-color:purple;">**LangChain provides intelligent retry mechanisms to handle these errors automatically.**</mark>
+* <mark style="color:red;background-color:purple;">**When a model incorrectly calls multiple structured output tools, the agent provides error feedback in a**</mark> [<mark style="color:red;background-color:purple;">**`ToolMessage`**</mark>](https://reference.langchain.com/python/langchain-core/messages/tool/ToolMessage) <mark style="color:red;background-color:purple;">**and prompts the model to retry**</mark>

@@ -1,4 +1,8 @@
-# 🟢 Web vs API
+---
+hidden: true
+---
+
+# ✈️ Web vs API
 
 * <mark style="color:purple;background-color:purple;">**Pricing of Web and API will be different**</mark>
 * <mark style="color:purple;background-color:purple;">**We will be having more control in API**</mark>

@@ -2,7 +2,7 @@
 
 * User experience matters&#x20;
 * Text appears as its generated
-* <mark style="color:purple;background-color:purple;">**stream() returns an iterator that yields output chunks as they are produced**</mark>
+* <mark style="color:red;background-color:purple;">**stream() returns an iterator that yields output chunks as they are produced**</mark>
 *   <mark style="color:purple;background-color:purple;">**We can even loop over the iterator to show output**</mark>
 
     <figure><img src=".gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>

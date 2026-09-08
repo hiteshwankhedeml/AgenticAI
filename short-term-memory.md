@@ -1,8 +1,10 @@
 # 🟢 Short-term memory
 
-* <mark style="color:purple;background-color:purple;">**Lets your application remember previous interactions within a single thread or conversation**</mark>
+* <mark style="color:red;background-color:purple;">**AgentState**</mark>
+* <mark style="color:purple;background-color:purple;">**Lets your application remember**</mark>**&#x20;**<mark style="color:red;background-color:purple;">**previous interactions within a single thread or conversation**</mark>
 * <mark style="color:purple;background-color:purple;">**Chat models accept context using**</mark> [<mark style="color:purple;background-color:purple;">**messages**</mark>](https://docs.langchain.com/oss/python/langchain/messages)<mark style="color:purple;background-color:purple;">**, which include instructions (a system message) and inputs (human messages)**</mark>
-* <mark style="color:purple;background-color:purple;">**need to specify a**</mark><mark style="color:purple;background-color:purple;">**&#x20;**</mark><mark style="color:purple;background-color:purple;">**`checkpointer`**</mark><mark style="color:purple;background-color:purple;">**&#x20;**</mark><mark style="color:purple;background-color:purple;">**when creating an agent.**</mark>
+* <mark style="color:red;background-color:purple;">**need to specify a**</mark><mark style="color:red;background-color:purple;">**&#x20;**</mark><mark style="color:red;background-color:purple;">**`checkpointer`**</mark><mark style="color:red;background-color:purple;">**&#x20;**</mark><mark style="color:red;background-color:purple;">**when creating an agent.**</mark>
+* <mark style="color:red;background-color:purple;">**We can also save it to postgres DB**</mark>
 
 ```python
 from langgraph.checkpoint.memory import InMemorySaver  
@@ -41,8 +43,8 @@ with PostgresSaver.from_conn_string(DB_URI) as checkpointer:
 
 * <mark style="color:purple;background-color:purple;">**Agents use**</mark> [<mark style="color:purple;background-color:purple;">**`AgentState`**</mark>](https://reference.langchain.com/python/langchain/agents/middleware/types/AgentState) <mark style="color:purple;background-color:purple;">**to manage short term memory, specifically the conversation history via a**</mark><mark style="color:purple;background-color:purple;">**&#x20;**</mark><mark style="color:purple;background-color:purple;">**`messages`**</mark><mark style="color:purple;background-color:purple;">**&#x20;**</mark><mark style="color:purple;background-color:purple;">**key**</mark>
 * <mark style="color:purple;background-color:purple;">**We can add additional fields**</mark>
-* <mark style="color:purple;background-color:purple;">**We can pass custom state schema using the state\_schema in create\_agent**</mark>
-* <mark style="color:purple;background-color:purple;">**During invocation, we can pass the values of the custom fields**</mark>
+* <mark style="color:red;background-color:purple;">**We can pass custom state schema using the state\_schema in create\_agent**</mark>
+* <mark style="color:red;background-color:purple;">**During invocation, we can pass the values of the custom fields**</mark>
 
 ```python
 class CustomAgentState(AgentState):
@@ -68,14 +70,14 @@ result = agent.invoke(
 <mark style="color:purple;background-color:purple;">**Trim Message:**</mark>
 
 * <mark style="color:purple;background-color:purple;">**count the tokens in the message history and truncate whenever it approaches that limit**</mark>
-* <mark style="color:purple;background-color:purple;">**We can create a function with @before\_model ⇒ in this add logic for trimming the old messages**</mark>
-* <mark style="color:purple;background-color:purple;">**Pass this middleware in create\_agent**</mark>
-* <mark style="color:purple;background-color:purple;">**Similarly we can also remove messages also**</mark>
+* <mark style="color:red;background-color:purple;">**We can create a function with @before\_model ⇒ in this add logic for trimming the old messages**</mark>
+* <mark style="color:red;background-color:purple;">**Pass this middleware in create\_agent**</mark>
+* <mark style="color:red;background-color:purple;">**Similarly we can also remove messages also**</mark>
 
 <mark style="color:purple;background-color:purple;">**Access Memory:**</mark>
 
 * <mark style="color:purple;background-color:purple;">**Access short term memory (state) in a tool using the**</mark><mark style="color:purple;background-color:purple;">**&#x20;**</mark><mark style="color:purple;background-color:purple;">**`runtime`**</mark><mark style="color:purple;background-color:purple;">**&#x20;**</mark><mark style="color:purple;background-color:purple;">**parameter (typed as**</mark><mark style="color:purple;background-color:purple;">**&#x20;**</mark><mark style="color:purple;background-color:purple;">**`ToolRuntime`**</mark><mark style="color:purple;background-color:purple;">**).**</mark>
-* <mark style="color:purple;background-color:purple;">**runtime.state\["user\_id"] ⇒ Read memory inside a tool**</mark>
+* <mark style="color:red;background-color:purple;">**runtime.state\["user\_id"] ⇒ Read memory inside a tool**</mark>
 * <mark style="color:purple;background-color:purple;">**To modify the agent’s short-term memory (state) during execution, you can return state updates directly from the tools**</mark>
 
 ```python
@@ -91,8 +93,8 @@ return Command(update={
     }
 ```
 
-* <mark style="color:purple;background-color:purple;">**Access short term memory (state) in middleware to create dynamic prompts based on conversation history or custom state fields**</mark>
-* <mark style="color:purple;background-color:purple;">**We will create a function with @dynamic\_prompt and pass it in middleware**</mark>
+* <mark style="color:red;background-color:purple;">**Access short term memory (state) in middleware to create dynamic prompts based on conversation history or custom state fields**</mark>
+* <mark style="color:red;background-color:purple;">**We will create a function with @dynamic\_prompt and pass it in middleware**</mark>
 
 ```python
 @dynamic_prompt

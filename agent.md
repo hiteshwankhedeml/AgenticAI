@@ -1,7 +1,8 @@
 # 🟢 Agent
 
-* <mark style="color:purple;background-color:purple;">**LLM + Memory + Tools**</mark>
-* <mark style="color:purple;background-color:purple;">**An agent is a model calling tools in a loop until the task is done**</mark>
+* <mark style="color:red;background-color:purple;">**An agent is a model calling tools in a loop until the task is done**</mark>
+* <mark style="color:purple;background-color:purple;">**Agent = Model + Harness**</mark>
+* <mark style="color:purple;background-color:purple;">**Harness ⇒ System prompt, Tools, Middleware, Guardrails, Checkpoints ⇒ Harness**</mark>
 *
 
     <figure><img src=".gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>

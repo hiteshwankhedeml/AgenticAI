@@ -5,7 +5,7 @@
 
 <mark style="color:purple;background-color:purple;">**ToolError:**</mark>
 
-* <mark style="color:purple;background-color:purple;">**Catch exceptions raised during tool execution and convert them into error**</mark><mark style="color:purple;background-color:purple;">**&#x20;**</mark><mark style="color:purple;background-color:purple;">**`ToolMessage`**</mark><mark style="color:purple;background-color:purple;">**s that the model can see and recover from and retry with corrected arguments**</mark>
+* <mark style="color:red;background-color:purple;">**Catch exceptions raised during tool execution and convert them into error**</mark><mark style="color:red;background-color:purple;">**&#x20;**</mark><mark style="color:red;background-color:purple;">**`ToolMessage`**</mark><mark style="color:red;background-color:purple;">**s that the model can see and recover from and retry with corrected arguments**</mark>
 * <mark style="color:purple;background-color:purple;">**We define a function on\_error inside which we format the error message and this function is passed inside ToolErrorMiddleware to the LLM**</mark>
 * <mark style="color:purple;background-color:purple;">**So that the LLM can retry**</mark>&#x20;
 
@@ -23,14 +23,14 @@ agent = create_agent(
 
 <mark style="color:purple;background-color:purple;">**Tool retry:**</mark>
 
-* <mark style="color:purple;background-color:purple;">**Automatically retry failed tool calls with configurable exponential backoff incase of network errors**</mark>
+* <mark style="color:red;background-color:purple;">**Automatically retry failed tool calls with configurable exponential backoff incase of network errors**</mark>
 * <mark style="color:purple;background-color:purple;">**middleware=\[  &#x20;ToolRetryMiddleware(  &#x20;max\_retries=3,  &#x20;backoff\_factor=2.0,  &#x20;initial\_delay=1.0,  &#x20;),  &#x20;]**</mark>
 
 <mark style="color:purple;background-color:purple;">**LLM Tool Emulator:**</mark>
 
-* <mark style="color:purple;background-color:purple;">**Emulate tool execution using an LLM for testing purposes, replacing actual tool calls with AI-generated responses**</mark>
-* <mark style="color:purple;background-color:purple;">**Testing agent behavior without executing real tools.**</mark>
-* <mark style="color:purple;background-color:purple;">**Developing agents when external tools are unavailable or expensive.**</mark>
+* <mark style="color:red;background-color:purple;">**Emulate tool execution using an LLM for testing purposes, replacing actual tool calls with AI-generated responses**</mark>
+* <mark style="color:red;background-color:purple;">**Testing agent behavior without executing real tools.**</mark>
+* <mark style="color:red;background-color:purple;">**Developing agents when external tools are unavailable or expensive.**</mark>
 * <mark style="color:purple;background-color:purple;">**Prototyping agent workflows before implementing actual tools.**</mark>
 
 ```python
@@ -46,22 +46,22 @@ agent = create_agent(
 )
 ```
 
-<mark style="color:purple;background-color:purple;">**Model retry: Retry failed model calls**</mark>
+<mark style="color:red;background-color:purple;">**Model retry:**</mark>**&#x20;**<mark style="color:purple;background-color:purple;">**Retry failed model calls**</mark>
 
-<mark style="color:purple;background-color:purple;">**Model Fallback:**</mark>&#x20;
+<mark style="color:red;background-color:purple;">**Model Fallback:**</mark>&#x20;
 
-* <mark style="color:purple;background-color:purple;">**Automatically fallback to alternative models when the primary model fails**</mark>
+* <mark style="color:red;background-color:purple;">**Automatically fallback to alternative models when the primary model fails**</mark>
 * <mark style="color:purple;background-color:purple;">**We can have multiple fallback**</mark>
 * <mark style="color:purple;background-color:purple;">**middleware=\[  &#x20;ModelFallbackMiddleware(  &#x20;"gpt-5.4-mini",  &#x20;"claude-3-5-sonnet-20241022",  ),  ]**</mark>
 
-<mark style="color:purple;background-color:purple;">**Summarization:**</mark>&#x20;
+<mark style="color:red;background-color:purple;">**Summarization:**</mark>&#x20;
 
-* <mark style="color:purple;background-color:purple;">**Automatically summarize conversation history when approaching token limits, preserving recent messages while compressing older context**</mark>
-* <mark style="color:purple;background-color:purple;">**It needs LLM**</mark>&#x20;
+* <mark style="color:red;background-color:purple;">**Automatically summarize conversation history when approaching token limits, preserving recent messages while compressing older context**</mark>
+* <mark style="color:red;background-color:purple;">**It needs LLM**</mark>&#x20;
 * <mark style="color:purple;background-color:purple;">**We need to specify either the number of tokens or no of messages when summarization needs to be done**</mark>
 * <mark style="color:purple;background-color:purple;">**We need to specify no. of token to be kept after summarization and no. of last messages to be retained**</mark>
-* <mark style="color:purple;background-color:purple;">**Recent messages retained by**</mark><mark style="color:purple;background-color:purple;">**&#x20;**</mark><mark style="color:purple;background-color:purple;">**`keep`**</mark><mark style="color:purple;background-color:purple;">**&#x20;**</mark><mark style="color:purple;background-color:purple;">**still include their original multimodal blocks, while older multimodal messages that are summarized are represented only by the generated text summary.**</mark>&#x20;
-* <mark style="color:purple;background-color:purple;">**We can also pass summary prompt**</mark>
+* <mark style="color:red;background-color:purple;">**Recent messages retained by**</mark><mark style="color:red;background-color:purple;">**&#x20;**</mark><mark style="color:red;background-color:purple;">**`keep`**</mark><mark style="color:red;background-color:purple;">**&#x20;**</mark><mark style="color:red;background-color:purple;">**still include their original multimodal blocks**</mark><mark style="color:purple;background-color:purple;">**, while older multimodal messages that are summarized are represented only by the generated text summary.**</mark>&#x20;
+* <mark style="color:red;background-color:purple;">**We can also pass summary prompt**</mark>
 
 ```python
 middleware=[ SummarizationMiddleware( model="gpt-5.4-mini", trigger=("tokens", 4000),
@@ -70,16 +70,16 @@ keep=("messages", 20), )
 
 <mark style="color:purple;background-color:purple;">**Human in the loop:**</mark>
 
-* <mark style="color:purple;background-color:purple;">**requires a**</mark> [<mark style="color:purple;background-color:purple;">**checkpointer**</mark>](https://docs.langchain.com/oss/python/langgraph/checkpointers#checkpoints) <mark style="color:purple;background-color:purple;">**to maintain state across interruptions.**</mark>
+* <mark style="color:red;background-color:purple;">**requires a**</mark> [<mark style="color:red;background-color:purple;">**checkpointer**</mark>](https://docs.langchain.com/oss/python/langgraph/checkpointers#checkpoints) <mark style="color:red;background-color:purple;">**to maintain state across interruptions.**</mark>
 * <mark style="color:purple;background-color:purple;">**If we specify False then for that tool it won't interrupt**</mark>
-* <mark style="color:purple;background-color:purple;">**The decisions for which we want interrupt needs to be specified**</mark>
-* <mark style="color:purple;background-color:purple;">**The human can have below options:**</mark>
-  * <mark style="color:purple;background-color:purple;">**Allow**</mark>
-  * <mark style="color:purple;background-color:purple;">**Reject**</mark>
-  * <mark style="color:purple;background-color:purple;">**Edit ⇒ Edit the tool arguments before execution**</mark>
-  * <mark style="color:purple;background-color:purple;">**Respond ⇒ Return the human message directly as a syntehtic tool result**</mark>
-* <mark style="color:purple;background-color:purple;">**Human input will be passed by using the same config and in invokes**</mark>
-* <mark style="color:purple;background-color:purple;">**graph.invoke(Command(resume={"decisions": \[{"type": "approve"}]}),config=config)**</mark>
+* <mark style="color:red;background-color:purple;">**The decisions for which we want interrupt needs to be specified**</mark>
+* <mark style="color:red;background-color:purple;">**The human can have below options:**</mark>
+  * <mark style="color:red;background-color:purple;">**Allow**</mark>
+  * <mark style="color:red;background-color:purple;">**Reject**</mark>
+  * <mark style="color:red;background-color:purple;">**Edit ⇒ Edit the tool arguments before execution**</mark>
+  * <mark style="color:red;background-color:purple;">**Respond ⇒ Return the human message directly as a syntehtic tool result**</mark>
+* <mark style="color:red;background-color:purple;">**Human input will be passed by using the same config and in invokes**</mark>
+* <mark style="color:red;background-color:purple;">**graph.invoke(Command(resume={"decisions": \[{"type": "approve"}]}),config=config)**</mark>
 
 ```python
 from langchain.agents import create_agent
@@ -112,16 +112,16 @@ agent = create_agent(
 )
 ```
 
-<mark style="color:purple;background-color:purple;">**Model Call Limit**</mark>
+<mark style="color:red;background-color:purple;">**Model Call Limit**</mark>
 
-<mark style="color:purple;background-color:purple;">**Tool Call Limit:**</mark>
+<mark style="color:red;background-color:purple;">**Tool Call Limit:**</mark>
 
-* <mark style="color:purple;background-color:purple;">**Either globally across all tools or for specific tools**</mark>
+* <mark style="color:red;background-color:purple;">**Either globally across all tools or for specific tools**</mark>
 
-<mark style="color:purple;background-color:purple;">**PII Detection:**</mark>
+<mark style="color:red;background-color:purple;">**PII Detection:**</mark>
 
-* <mark style="color:purple;background-color:purple;">**There are lot of PII types which are available by default**</mark>&#x20;
-* <mark style="color:purple;background-color:purple;">**For custom we can either write a regex or also create detector function in which we will pass the content and it will return the detections**</mark>
+* <mark style="color:red;background-color:purple;">**There are lot of PII types which are available by default**</mark>&#x20;
+* <mark style="color:red;background-color:purple;">**For custom we can either write a regex or also create detector function in which we will pass the content and it will return the detections**</mark>
 
 ```python
 from langchain.agents import create_agent
@@ -168,9 +168,9 @@ def detect_ssn(content: str) -> list[PIIMatch]:
 
 ```
 
-<mark style="color:purple;background-color:purple;">**To-do list:**</mark>
+<mark style="color:red;background-color:purple;">**To-do list:**</mark>
 
-* <mark style="color:purple;background-color:purple;">**Equip agents with task planning and tracking capabilities for complex multi-step tasks.**</mark>
+* <mark style="color:red;background-color:purple;">**Equip agents with task planning and tracking capabilities for complex multi-step tasks.**</mark>
 
 ```python
 from langchain.agents import create_agent
@@ -185,10 +185,10 @@ agent = create_agent(
 
 <mark style="color:purple;background-color:purple;">**LLM Tool Selector:**</mark>
 
-* <mark style="color:purple;background-color:purple;">**Select relevant tools before calling the main model**</mark>
+* <mark style="color:red;background-color:purple;">**Select relevant tools before calling the main model**</mark>
 * <mark style="color:purple;background-color:purple;">**Agents with many tools (10+) where most aren’t relevant per query.**</mark>
 * <mark style="color:purple;background-color:purple;">**Reducing token usage by filtering irrelevant tools.**</mark>
-* <mark style="color:purple;background-color:purple;">**LLMToolSelectorMiddleware(  &#x20;model="gpt-5.4-mini",  &#x20;max\_tools=3,  &#x20;always\_include=\["search"],  &#x20;)**</mark>
+* <mark style="color:red;background-color:purple;">**LLMToolSelectorMiddleware(  &#x20;model="gpt-5.4-mini",  &#x20;max\_tools=3,  &#x20;always\_include=\["search"],  &#x20;)**</mark>
 
 <mark style="color:purple;background-color:purple;">**Provider Tool Search:**</mark>
 
@@ -198,12 +198,12 @@ agent = create_agent(
 
 <mark style="color:purple;background-color:purple;">**Shell Tool:**</mark>&#x20;
 
-* <mark style="color:purple;background-color:purple;">**Expose a persistent shell session to agents for command execution**</mark>
-* <mark style="color:purple;background-color:purple;">**Agents that need to execute system commands**</mark>
+* <mark style="color:red;background-color:purple;">**Expose a persistent shell session to agents for command execution**</mark>
+* <mark style="color:red;background-color:purple;">**Agents that need to execute system commands**</mark>
 * <mark style="color:purple;background-color:purple;">**Development and deployment automation tasks**</mark>
 * <mark style="color:purple;background-color:purple;">**Testing and validation workflows**</mark>
 * <mark style="color:purple;background-color:purple;">**File system operations and script execution**</mark>
-* <mark style="color:purple;background-color:purple;">**Use appropriate execution policies (**</mark><mark style="color:purple;background-color:purple;">**`HostExecutionPolicy`**</mark><mark style="color:purple;background-color:purple;">**,**</mark><mark style="color:purple;background-color:purple;">**&#x20;**</mark><mark style="color:purple;background-color:purple;">**`DockerExecutionPolicy`**</mark><mark style="color:purple;background-color:purple;">**, or**</mark><mark style="color:purple;background-color:purple;">**&#x20;**</mark><mark style="color:purple;background-color:purple;">**`CodexSandboxExecutionPolicy`**</mark><mark style="color:purple;background-color:purple;">**) to match your deployment’s security requirements.**</mark>
+* <mark style="color:red;background-color:purple;">**Use appropriate execution policies (**</mark><mark style="color:red;background-color:purple;">**`HostExecutionPolicy`**</mark><mark style="color:red;background-color:purple;">**,**</mark><mark style="color:red;background-color:purple;">**&#x20;**</mark><mark style="color:red;background-color:purple;">**`DockerExecutionPolicy`**</mark><mark style="color:red;background-color:purple;">**, or**</mark><mark style="color:red;background-color:purple;">**&#x20;**</mark><mark style="color:red;background-color:purple;">**`CodexSandboxExecutionPolicy`**</mark><mark style="color:red;background-color:purple;">**) to match your deployment’s security requirements.**</mark>
 * <mark style="color:purple;background-color:purple;">**Persistent shell sessions do not currently work with interrupts (human-in-the-loop). We anticipate adding support for this in the future.**</mark>
 * <mark style="color:purple;background-color:purple;">**We can treat it as a tool, which is called by AI, it will access the file system where it's running**</mark>
 

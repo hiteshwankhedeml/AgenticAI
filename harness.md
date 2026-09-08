@@ -1,4 +1,8 @@
-# 🟢 Harness
+---
+hidden: true
+---
+
+# ✈️ Harness
 
 * <mark style="color:purple;background-color:purple;">**Agent = Model + Harness**</mark>
 * <mark style="color:purple;background-color:purple;">**Harness ⇒ System prompt, Tools, Middleware, Guardrails, Checkpoints ⇒ Harness**</mark>

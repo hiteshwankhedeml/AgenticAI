@@ -2,16 +2,17 @@
 
 <mark style="color:purple;background-color:purple;">**Steps:**</mark>
 
-* <mark style="color:purple;background-color:purple;">**We create agent with model and tools and system prompt**</mark>
+* <mark style="color:purple;background-color:purple;">**We create agent with**</mark>**&#x20;**<mark style="color:red;background-color:purple;">**model, tools and system prompt**</mark>
 * <mark style="color:purple;background-color:purple;">**agent.invoke**</mark>
 * uv init
 * uv add langchain
 * There are other smaller packages also like langchain-openai
-* <mark style="color:purple;background-color:purple;">**In the below example,**</mark>&#x20;
-  * <mark style="color:purple;background-color:purple;">**We sent a human message**</mark>
-  * <mark style="color:purple;background-color:purple;">**In AI message we got a tool\_call ⇒ tool was executed**</mark>
-  * <mark style="color:purple;background-color:purple;">**Tool Message**</mark>
-  * <mark style="color:purple;background-color:purple;">**AI message**</mark>
+* In the below example,&#x20;
+  * We sent a human message
+  * In AI message we got a tool\_call ⇒ tool was executed
+  * Tool Message
+  * AI message
+* <mark style="color:red;background-color:purple;">**Human Message ⇒ AI Message (Too Call) ⇒ Tool Message ⇒ AI Message**</mark>
 
 ```python
 # pip install -qU langchain "langchain[openai]"
