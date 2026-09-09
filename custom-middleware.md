@@ -1,21 +1,21 @@
 # 🟢 Custom Middleware
 
 * <mark style="color:purple;background-color:purple;">**In Prebuilt, we just had to use it, where and how it will get called was pre decided**</mark>
-* <mark style="color:purple;background-color:purple;">**Here, we will have to specify where the middleware needs to get called**</mark>
+* <mark style="color:purple;background-color:purple;">**Here, we will have to**</mark>**&#x20;**<mark style="color:red;background-color:purple;">**specify where the middleware needs to get called**</mark>
 * <mark style="color:purple;background-color:purple;">**By implementing hooks that run at specific points in the agent execution flow.**</mark>
 * <mark style="color:purple;background-color:purple;">**Hooks ⇒ Extension points in custom middleware that let intercept, inspect or modify agent execution at specific stages**</mark>
 * <mark style="color:purple;background-color:purple;">**Two styles of hooks:**</mark>
-  * <mark style="color:purple;background-color:purple;">**Node style hooks:**</mark>
+  * <mark style="color:red;background-color:purple;">**Node style hooks**</mark><mark style="color:purple;background-color:purple;">**:**</mark>
     * <mark style="color:purple;background-color:purple;">**Run sequentially at specific execution points**</mark>
     * <mark style="color:purple;background-color:purple;">**Use for logging, validation, and state updates**</mark>
-    * <mark style="color:purple;background-color:purple;">**before\_agent, before\_model, after\_model, after\_agent**</mark>
-    * <mark style="color:purple;background-color:purple;">**Here we get the state and runtime**</mark>
-  * <mark style="color:purple;background-color:purple;">**Wrap style hooks:**</mark>
+    * <mark style="color:red;background-color:purple;">**before\_agent, before\_model, after\_model, after\_agent**</mark>
+    * <mark style="color:red;background-color:purple;">**Here we get the state and runtime**</mark>
+  * <mark style="color:red;background-color:purple;">**Wrap style hooks:**</mark>
     * <mark style="color:purple;background-color:purple;">**Run around each model or tool call**</mark>
     * <mark style="color:purple;background-color:purple;">**wrap\_model\_call, wrap\_tool\_call**</mark>
-    * <mark style="color:purple;background-color:purple;">**Here we get the exact request**</mark>
-  * <mark style="color:purple;background-color:purple;">**We basically have to create a function with decorator like @before\_model or @after\_model and then we need to pass the same in middleware**</mark>
-  * <mark style="color:purple;background-color:purple;">**For example in wrap\_model\_call based on the messages we can change the model to be used**</mark>
+    * <mark style="color:red;background-color:purple;">**Here we get the exact request**</mark>
+  * <mark style="color:red;background-color:purple;">**We basically have to create a function with decorator like @before\_model or @after\_model and then we need to pass the same in middleware**</mark>
+  * <mark style="color:red;background-color:purple;">**For example in wrap\_model\_call based on the messages we can change the model to be used**</mark>
 * <mark style="color:purple;background-color:purple;">**We can define middleware using decorator as well as class**</mark>
 *
 
@@ -47,9 +47,9 @@ class MessageLimitMiddleware(AgentMiddleware):
         return None
 ```
 
-<mark style="color:purple;background-color:purple;">**Custom State Schema:**</mark>
+<mark style="color:red;background-color:purple;">**Custom State Schema:**</mark>
 
-* <mark style="color:purple;background-color:purple;">**If your middleware needs to track state across hooks, middleware can extend the agent’s state with custom properties.**</mark>
+* <mark style="color:red;background-color:purple;">**If your middleware needs to track state across hooks, middleware can extend the agent’s state with custom properties.**</mark>
 
 ```python
 from langchain.agents import create_agent
