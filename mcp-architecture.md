@@ -22,7 +22,10 @@
 <mark style="color:red;background-color:purple;">**Layers:**</mark>
 
 * <mark style="color:red;background-color:purple;">**Data layer**</mark><mark style="color:red;background-color:purple;">:</mark>&#x20;
-  * <mark style="color:red;background-color:purple;">Defines the JSON-RPC based protocol for client-server communication</mark>
+  * <mark style="color:red;background-color:purple;">**Defines the JSON-RPC 2.0 based protocol for client-server communication**</mark>
+  * <mark style="color:red;background-color:purple;">**RPC - Remote procedure call**</mark>
+  * <mark style="color:red;background-color:purple;">**Host cannot speak RPC ⇒ Allows a program to execute a function on another machine as if its a local, abstracting the details of transfer of data and network communication**</mark>
+  * <mark style="color:red;background-color:purple;">**Why JSON RPC? ⇒ plain, human readable, same shape over stdio and http, can be used for both side communication**</mark>
   * <mark style="color:purple;background-color:purple;">Includes:</mark>
     * <mark style="color:red;background-color:purple;">**Discovery:**</mark>
       * <mark style="color:red;background-color:purple;">**Lets clients query a server’s supported protocol versions, capabilities, and identity**</mark> <mark style="color:purple;background-color:purple;">through the</mark> <mark style="color:purple;background-color:purple;"></mark><mark style="color:purple;background-color:purple;">`server/discover`</mark> <mark style="color:purple;background-color:purple;"></mark><mark style="color:purple;background-color:purple;">request</mark>
@@ -41,7 +44,7 @@
 * <mark style="color:red;background-color:purple;">**MCP is a stateless protocol**</mark>
 * <mark style="color:red;background-color:purple;">**Every request carries the protocol version and the capabilities relevant to that request in its**</mark><mark style="color:red;background-color:purple;">**&#x20;**</mark><mark style="color:red;background-color:purple;">**`_meta`**</mark><mark style="color:red;background-color:purple;">**&#x20;**</mark><mark style="color:red;background-color:purple;">**field, so the server can process each request on its own.**</mark>
 
-<mark style="color:purple;background-color:purple;">**MCP servers can expose:**</mark>
+<mark style="color:purple;background-color:purple;">**MCP servers can expose (Primitive):**</mark>
 
 * <mark style="color:purple;background-color:purple;">Tools</mark>
 * <mark style="color:purple;background-color:purple;">Resources: e.g., file contents, database records, API responses</mark>

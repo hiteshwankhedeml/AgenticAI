@@ -16,6 +16,15 @@
     * <mark style="color:red;background-color:purple;">**The server provides a URL for the user to open**</mark>
     * <mark style="color:red;background-color:purple;">**Data never passes through the client, which makes this mode suitable for sensitive flows such as credential entry**</mark>
 
+<mark style="color:purple;background-color:purple;">**Benefits of 1:1 Client: Server:**</mark>
+
+* <mark style="color:red;background-color:purple;">**Scalability**</mark>
+* <mark style="color:red;background-color:purple;">**Parallelism**</mark>
+* <mark style="color:red;background-color:purple;">**Security**</mark>
+
 <mark style="color:purple;background-color:purple;">**Flow:**</mark>
 
 <figure><img src=".gitbook/assets/{74889ED6-8D31-4CC2-8DA0-75B56188670F}.png" alt=""><figcaption></figcaption></figure>
+
+
+
