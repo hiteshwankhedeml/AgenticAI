@@ -23,7 +23,7 @@ def create_agent(
 
 <mark style="color:purple;background-color:purple;">**Provider Stategy:**</mark>
 
-* <mark style="color:purple;background-color:purple;">**LangChain automatically uses**</mark><mark style="color:purple;background-color:purple;">**&#x20;**</mark><mark style="color:purple;background-color:purple;">**`ProviderStrategy`**</mark><mark style="color:purple;background-color:purple;">**&#x20;**</mark><mark style="color:purple;background-color:purple;">**when you pass a schema type directly to**</mark> [<mark style="color:purple;background-color:purple;">**`create_agent.response_format`**</mark>](https://reference.langchain.com/python/langchain/agents/factory/create_agent)
+* <mark style="color:red;background-color:purple;">**LangChain automatically uses**</mark><mark style="color:red;background-color:purple;">**&#x20;**</mark><mark style="color:red;background-color:purple;">**`ProviderStrategy`**</mark><mark style="color:red;background-color:purple;">**&#x20;**</mark><mark style="color:red;background-color:purple;">**when you pass a schema type directly to**</mark> [<mark style="color:red;background-color:purple;">**`create_agent.response_format`**</mark>](https://reference.langchain.com/python/langchain/agents/factory/create_agent)
 
 ```python
 from pydantic import BaseModel, Field
@@ -51,8 +51,11 @@ print(result["structured_response"])
 
 <mark style="color:purple;background-color:purple;">**Tool Calling Strategy:**</mark>
 
-* <mark style="color:purple;background-color:purple;">**For models that don’t support native structured output, LangChain uses tool calling to achieve the same result.**</mark>
+* <mark style="color:red;background-color:purple;">**For models that don’t support native structured output, LangChain uses tool calling to achieve the same result.**</mark>
 * <mark style="color:purple;background-color:purple;">**The**</mark><mark style="color:purple;background-color:purple;">**&#x20;**</mark><mark style="color:purple;background-color:purple;">**`tool_message_content`**</mark><mark style="color:purple;background-color:purple;">**&#x20;**</mark><mark style="color:purple;background-color:purple;">**parameter allows you to customize the message that appears in the conversation history when structured output is generated**</mark>
+* <mark style="color:red;background-color:purple;">**LangChain converts your schema into a tool definition and invokes the model.**</mark>&#x20;
+* <mark style="color:red;background-color:purple;">**If the generated output fails validation, the behavior depends entirely on how you configure error handling via**</mark><mark style="color:red;background-color:purple;">**&#x20;**</mark><mark style="color:red;background-color:purple;">**`handle_errors`**</mark>&#x20;
+  * <mark style="color:red;background-color:purple;">**`True`**</mark><mark style="color:red;background-color:purple;">**: Catches the validation error, appends an error message to the conversation history, and allows the agent/model to attempt recovery or handle the error according to your agent loop.**</mark>
 
 ```python
 from pydantic import BaseModel, Field
