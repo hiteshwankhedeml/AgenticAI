@@ -1,6 +1,7 @@
 # 🟢 Model
 
 * <mark style="color:purple;background-color:purple;">**Can we utilized**</mark>**&#x20;**<mark style="color:red;background-color:purple;">**with agents or standalone**</mark>
+* <mark style="color:purple;background-color:purple;">**LLMs are stateless**</mark>
 * Use invoke to intialize a model
   * invoke
   * Stream

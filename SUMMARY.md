@@ -31,7 +31,7 @@
 * [🟢 Guardrails](guardrails.md)
 * [🟢 Runtime](runtime.md)
 * [🟢 Context Engineering](context-engineering.md)
-* [MCP - Complete from documentation](mcp-complete-from-documentation.md)
+* [MCP](mcp.md)
 * [Human in the Loop](human-in-the-loop.md)
 * [Multi Agent](multi-agent.md)
 * [Multi Agent](multi-agent-1.md)
