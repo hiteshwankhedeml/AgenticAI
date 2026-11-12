@@ -1,6 +1,8 @@
 # Table of contents
 
-* [📚 Useful Links](README.md)
+* [01.10.2026](README.md)
+* [Meridian Project](meridian-project.md)
+* [📚 Useful Links](<README (1).md>)
 * [LLM](llm.md)
 * [Token](token.md)
 * [Embedding](embedding.md)
